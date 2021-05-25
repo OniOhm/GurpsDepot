@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { typeCLick } from './types';
-
+import Icon from './IconComponent';
 
 const ModalView: FunctionComponent<typeCLick> = (props) => {
 
@@ -11,16 +11,18 @@ const ModalView: FunctionComponent<typeCLick> = (props) => {
             <div className='bg-gray-50 w-1/2 h-1/2 z-20 grid-rows-3 grid-cols-4 grid rounded p-4'>
                 {/* header */}
                 <div className='w-90  row-start-1 flex items-center row-span-3 flex-wrap justify-evenly'>
-                    <p className='text-2xl'> {props.perkInfo.type}</p>
-                    <p className='text-3xl font-bold'>{props.perkInfo.name}</p>
+                    <p className='text-2xl'> {props.selectedPerk.type}</p>
+                    <Icon type={props.selectedPerk.subType} include_name={true}/>
+                 
+                    <p className='text-3xl font-bold'>{props.selectedPerk.name}</p>
 
-                    <p className='text-2xl'>{props.perkInfo.cost}</p>
+                    <p className='text-2xl'>{props.selectedPerk.cost}</p>
 
 
                 </div>
                 {/* content */}
                 <div className='w-full mr-2 mt-4  row-start-1 col-start-2 col-span-2 flex'>
-                    <p className='text-xl ml-3'>{props.perkInfo.description}</p>
+                    <p className='text-xl ml-3'>{props.selectedPerk.description}</p>
                 </div>
                 {/* footer/buttons */}
                 <div className='w-full row-start-3 col-start-4 flex justify-end items-end'>

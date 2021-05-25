@@ -1,33 +1,40 @@
-import React, { FunctionComponent,useState } from 'react';
+import React, { FunctionComponent,useState,useReducer, Reducer } from 'react';
 import ModalView from './ModalView';
 
-import { dataPoint } from './types';
+import { dataPoint,action, state } from './types';
 import StatBlock from './PerkBlock';
 
 
+const initState: state = {
+  selectedPerk: {
+    name: '',
+    description: '',
+    // discriptor
+    cost: '',
+    type: '', 
+    subType: '',
+    Difficulty: '',
+  },
+  modalShowHide: true
+  
+}
 
 
 const Pamds: FunctionComponent<dataPoint> = (props) => {
-const [modal,ModalShowHide] = useState(true);
-  let Edges = props.Data.map((advantage) => {
+const [state,stateUpdate] = useState(initState);
+
+  let Edges = props.Data.map((perk) => {
     return(
-      <StatBlock key={advantage.name} name={advantage.name}
-      description={advantage.description}
-      cost={advantage.cost}
-      type={advantage.type}
-      subType={advantage.subType}
-      Difficulty={advantage.Difficulty}/>
+      <StatBlock key={perk.name} tiedPerk={perk}
+      toModal={(e,data)=>{const copy = {...state}; copy.selectedPerk = data; copy.modalShowHide=true; stateUpdate(copy)}}
+      />
     )
 
   })
   return (
     <div className='flex w-full h-screen flex-wrap m-0 p-0 justify-center overflow-auto'>
       {Edges}
-     {modal &&  <ModalView perkInfo={ {name: 'Single Minded',
-      description: 'You have superior senses',
-      cost: '2',
-      subType: 'Mental',
-      type: 'Disadvantage'}} ClickHandler={(e)=>{ModalShowHide(modal ? false: true)}}
+     {state.modalShowHide &&  <ModalView selectedPerk={state.selectedPerk} ClickHandler={(e)=>{const copy = {...state}; copy.modalShowHide = false; stateUpdate(copy)}}
         />}
     </div>
   )
