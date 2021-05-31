@@ -15,7 +15,7 @@ const initState: state = {
     subType: '',
     Difficulty: '',
   },
-  modalShowHide: true
+  modalShowHide: false
   
 }
 

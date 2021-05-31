@@ -12,7 +12,7 @@ const ModalView: FunctionComponent<typeCLick> = (props) => {
                 {/* header */}
                 <div className='w-90  row-start-1 flex items-center row-span-3 flex-wrap justify-evenly'>
                     <p className='text-2xl'> {props.selectedPerk.type}</p>
-                    <Icon type={props.selectedPerk.subType} include_name={true}/>
+                    <Icon type={props.selectedPerk.subType} include_name={true} theme='Black'/>
                  
                     <p className='text-3xl font-bold'>{props.selectedPerk.name}</p>
 

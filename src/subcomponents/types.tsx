@@ -12,6 +12,7 @@ export type perkBlock = {
 export type icon = {
     type: string,
     include_name: boolean,
+    theme: string
 }
 export type typeCLick = {
     selectedPerk: perkBlock,
