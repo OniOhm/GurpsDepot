@@ -74,9 +74,14 @@ const Icon: FunctionComponent<icon> = (props) =>{
     }
     return(
             // need to add Sizing value to component type
-            <div>
-            <img className='block w-1/3'  src={currentIcon}></img>
+            <div className='grid grid-cols-1 grid-rows-2'>
+            <div className='flex justify-center'>
+            <img className='block'  src={currentIcon}></img>
+            </div>
+            <div className='flex justify-center'>
             {props.include_name && <p>{props.type}</p>}
+            </div>
+          
             </div>
 
     )

@@ -20,16 +20,16 @@ export type typeCLick = {
 }
 export type dataPoint = {
     Data: Array<perkBlock>,
+    showNotFound: boolean,
 }
 export type perkButton = {
     tiedPerk : perkBlock,
     toModal : (e: React.MouseEvent,data: perkBlock) => void;
 }
-export type action = {
-    type: String,
-}
+
+// app state
 export type state = {
     selectedPerk: perkBlock,
-    modalShowHide: boolean
+    modalShowHide: boolean,
 }
 export type Reducer<State,Action> = (state: State, action:Action) => State;
