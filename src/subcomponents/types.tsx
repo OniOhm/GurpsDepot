@@ -14,20 +14,23 @@ export type icon = {
     include_name: boolean,
     theme: string
 }
-export type typeCLick = {
+export type typeClick = {
     selectedPerk: perkBlock,
     ClickHandler : (e: React.MouseEvent) => void;
+    purchaseEdge: (e: React.MouseEvent,cost: string) => void;
 }
 export type dataPoint = {
     Data: Array<perkBlock>,
     showNotFound: boolean,
+    characterPoints: number,
+    purchaseHandler: (e: React.MouseEvent, data: string) => void;
 }
 export type perkButton = {
     tiedPerk : perkBlock,
     toModal : (e: React.MouseEvent,data: perkBlock) => void;
 }
 
-// app state
+// app state and reducer solution(deprecated till further notice)
 export type state = {
     selectedPerk: perkBlock,
     modalShowHide: boolean,

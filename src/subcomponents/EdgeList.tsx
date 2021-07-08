@@ -4,7 +4,7 @@ import ModalView from './ModalView';
 import { dataPoint, state } from './types';
 import StatBlock from './PerkBlock';
 
-
+// consolodate this state into one app.tsx state
 const initState: state = {
   selectedPerk: {
     name: '',
@@ -20,9 +20,9 @@ const initState: state = {
 }
 
 
-const Pamds: FunctionComponent<dataPoint> = (props) => {
+const EdgeList: FunctionComponent<dataPoint> = (props) => {
   const [state, stateUpdate] = useState(initState);
-
+  
   let Edges = props.Data.map((perk) => {
     return (
       <StatBlock key={perk.name} tiedPerk={perk}
@@ -32,9 +32,9 @@ const Pamds: FunctionComponent<dataPoint> = (props) => {
 
   })
   return (
-    <div className='flex w-full h-screen flex-wrap m-0 p-0 justify-center overflow-auto'>
+    <div className={'pamds flex w-full h-screen flex-wrap mr-4 p-0 justify-center overflow-auto'}>
       {Edges}
-      {state.modalShowHide && <ModalView selectedPerk={state.selectedPerk} ClickHandler={(e) => { const copy = { ...state }; copy.modalShowHide = false; stateUpdate(copy) }}
+      {state.modalShowHide && <ModalView selectedPerk={state.selectedPerk} ClickHandler={(e) => { const copy = { ...state }; copy.modalShowHide = false; stateUpdate(copy) }} purchaseEdge={props.purchaseHandler}
       />}
       {props.showNotFound &&
         <div className='w-full max-h-28 flex justify-center text-gray-50 mt-5'>
@@ -52,4 +52,4 @@ const Pamds: FunctionComponent<dataPoint> = (props) => {
 }
 
 
-export default Pamds;
+export default EdgeList;

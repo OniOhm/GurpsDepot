@@ -79,7 +79,7 @@ const Icon: FunctionComponent<icon> = (props) =>{
             <img className='block'  src={currentIcon}></img>
             </div>
             <div className='flex justify-center'>
-            {props.include_name && <p>{props.type}</p>}
+            {props.include_name && <p className='italic'>{props.type}</p>}
             </div>
           
             </div>

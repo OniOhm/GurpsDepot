@@ -1,10 +1,16 @@
 .edgeBox {
     FONT-WEIGHT: 500;
     display: grid;
-    grid-template-columns: 8em;
-    grid-template-rows: 5em 5em 5em;
-    padding: 5px;
-    max-height: 15em;
-    margin: 1em;
+    grid-template-columns: 6em;
+    grid-template-rows: 4em 4em 4em;
+    padding: 2px;
+    max-height: 12em;
+    margin: 15px;
     border-radius: 10px;
+  }
+  .pamds::-webkit-scrollbar{
+    display: none;
+  }
+  .edgeDescript::-webkit-scrollbar{
+    display: none;
   }
